@@ -4,15 +4,20 @@
 <meta charset="utf-8">
 <title>{name} - {'greasemonkey_user_script_editor'|i18n}</title>
 <link rel="stylesheet" href="/third-party/shoelace/shoelace.css">
+<link rel="stylesheet" href="/third-party/shoelace/theme/dark.css">
 <link rel="stylesheet" href="/third-party/font_awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="./edit-user-script.css">
+<!---<link rel="stylesheet" href="./edit-user-script.white.css"> -->
+<link rel="stylesheet" href="./edit-user-script.dark.css">
 
 <script src="/src/i18n.js"></script>
 <script src="/third-party/tinybind/tinybind.min.js"></script>
 <script src="/src/util/rivets-formatters.js"></script>
 
 <script src="/third-party/codemirror/codemirror.js"></script>
-<link rel="stylesheet" href="/third-party/codemirror/codemirror.css">
+ <link rel="stylesheet" href="/third-party/codemirror/codemirror.css"> 
+<link rel="stylesheet" href="/third-party/codemirror/theme/lesser-dark.css">
+<link rel="stylesheet" href="/third-party/codemirror/theme/material-darker.css">
 
 <script src="/third-party/codemirror/mode/javascript/javascript.js"></script>
 
@@ -27,9 +32,9 @@
 <script src="/third-party/codemirror/addon/search/search.js"></script>
 <script src="/third-party/codemirror/addon/search/match-highlighter.js"></script>
 <script src="/third-party/codemirror/addon/search/jump-to-line.js"></script>
-
 <script src="/third-party/codemirror/addon/lint/lint.js"></script>
 <link rel="stylesheet" href="/third-party/codemirror/addon/lint/lint.css">
+<script src="/third-party/codemirror/keymap/vim.js"></script>
 <script src="./cm-addons/lint-metadata.js"></script>
 <script src="./cm-addons/lint-metadata.run.js"></script>
 
@@ -78,7 +83,7 @@
   </div>
   <ul id="tabs"></ul>
 </div>
-<div id="editor"></div>
+<div id="editor" class="cm-s-material-darker"></div>
 
 <script src="edit-user-script.js"></script>
 

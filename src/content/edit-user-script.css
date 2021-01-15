@@ -1,9 +1,7 @@
 html, body {
-  background: lightgrey;
   height: 100%;
   margin: 0;
   overflow: hidden;
-  padding: 4px;
 }
 
 body.save #modal-splash {
@@ -14,7 +12,6 @@ body #modal-splash {
 }
 
 #modal-splash {
-  background-color: #A3A3A363;
   position: absolute;
   top: 0;
   left: 0;
@@ -23,15 +20,12 @@ body #modal-splash {
   z-index: 100;
 }
 #modal {
-  background-color: #FCFCF9;
-  border: 1px solid #CCC;
   border-radius: 2px;
   margin: 25% auto;
   padding: 1rem;
   width: 30em;
 }
 #modal header {
-  border-bottom: 1px solid #CCC;
   font-size: 25px;
   margin: 0 0 10px 0;
   padding-bottom: 10px;
@@ -53,7 +47,6 @@ body #modal-splash {
   white-space: nowrap;
 }
 #tabs .tab {
-  background: grey;
   cursor: default;
   display: inline-block;
   font-family: arial, sans-serif;
@@ -62,9 +55,6 @@ body #modal-splash {
   margin: 0 0 0 1ex;
   padding: 4px 8px;
   -moz-user-select: none;
-}
-#tabs .tab.active {
-  background: white;
 }
 #tabs .tab.dirty::after {
   content: "*";
@@ -77,13 +67,8 @@ body #modal-splash {
   display: flex;
   align-items: center;
   padding: 0 8px;
-  background: whitesmoke;
   -moz-user-select: none;
 }
-.command-item:hover {
-  background: #e5e5e5;
-}
-
 body, #editor, #editor textarea {
   display: flex;
   flex-direction: column;
@@ -92,7 +77,6 @@ body, #editor, #editor textarea {
 }
 #editor {
   height: 0;
-  background: white;
 }
 .CodeMirror {
   height: 100% !important;
