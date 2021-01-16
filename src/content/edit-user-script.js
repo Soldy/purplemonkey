@@ -72,6 +72,7 @@ let createDoc;
                 'lineNumbers': true,
                 'extraKeys'  : isMacKeymap ? macKeymap : pcKeymap,
                 'theme'      : 'material-darker',
+                'keyMap'     : 'vim',
             });
 
         CodeMirror.commands.save = onSave;
