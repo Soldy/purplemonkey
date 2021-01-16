@@ -2,15 +2,15 @@
 let editor = '';
 let errorList = [];
 let name = '';
-let title = _('saving')
+let title = _('saving');
 const buttonDisable = ()=>{
     document.getElementById('modal-close').disabled = true;
     document.getElementById('modal-close').style.display = 'none';
-}
+};
 const buttonEnable = ()=>{
     document.getElementById('modal-close').disabled = false;
     document.getElementById('modal-close').style.display = 'block';
-}
+};
 const errorRender = ()=>{
     const target = document.getElementById('modal-errors');
     target.innerHTML='';
@@ -30,7 +30,7 @@ const errorRender = ()=>{
     target.appendChild(list);
     target.appendChild(bottom);
     return true;
-}
+};
 export class EditorDisplayClass {
     constructor(editorIn) {
         editor = editorIn;
