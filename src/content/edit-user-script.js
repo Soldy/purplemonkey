@@ -3,6 +3,7 @@
 
 import { SimpleEditorDocClass } from '/src/util/simpleEditorDocClass.js';
 import { SimpleEditorClass } from '/src/util/simpleEditorClass.js';
+import { EditorDisplayClass } from '/src/util/editorDisplayClass.js';
 
 let gUserScript = null;
 
@@ -14,6 +15,9 @@ let gUserScript = null;
  */
 
 let modalTimer = null;
+let editor;
+let createDoc;
+const modal = new EditorDisplayClass(editor);
 
 const userScriptUuid = location.hash.substr(1);
 const editorDocs = [];
@@ -24,15 +28,14 @@ const gTplData = {
     'name': '',
     'modal': {
         'closeDisabled': true,
-        'errorList': [],
-        'title': _('saving')
+        'errorList': []
     }
 };
+document.getElementById('modal-title').innerHTML =  _('saving');
 // Change the title of the save icon (and more) to initial values.
-tinybind.bind(document, gTplData);
 
 document.querySelector('#modal footer button')
-    .addEventListener('click', modalClose);
+    .addEventListener('click', modal.close);
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -54,8 +57,6 @@ function nameForUrl(url) {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-let editor;
-let createDoc;
 (async function() {
     let options = await browser.runtime.sendMessage({'name': 'OptionsLoad'});
     const editorElem = document.getElementById('editor');
@@ -125,8 +126,8 @@ let createDoc;
 
     editor.swapDoc(editorDocs[0]);
     editor.focus();
-
-    gTplData.name = gUserScript.name;
+    modal.setEditor(editor);
+    modal.setName(gUserScript.name);
 })();
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -165,8 +166,8 @@ window.addEventListener('beforeunload', event => {
 
 function modalClose() {
     clearTimeout(modalTimer);
-
     document.body.classList.remove('save');
+
     gTplData.modal.closeDisabled = true;
     gTplData.modal.errorList = [];
     editor.getInputField().focus();
@@ -189,7 +190,6 @@ function modalFill(e) {
 
 
 function modalOpen() {
-    document.querySelector('#modal progress').value = 0;
     document.body.classList.add('save');
     editor.getInputField().blur();
 }
@@ -212,11 +212,8 @@ function onSave() {
     downloader.setKnownRequires(requires);
     downloader.setKnownResources(gUserScript.resources);
     downloader.setKnownUuid(userScriptUuid);
-    downloader.addProgressListener(() => {
-        document.querySelector('#modal progress').value = downloader.progress;
-    });
 
-    modalTimer = setTimeout(modalOpen, 75);
+    setTimeout(modal.open, 75);
     downloader
         .start()
         .then(() => {
@@ -227,17 +224,16 @@ function onSave() {
         })
         .then(userScript => {
             let details = userScript || gUserScript;
-            document.querySelector('#modal progress').removeAttribute('value');
             return downloader.install('edit', !details.enabled);
         }).then(onSaveComplete)
-        .catch(modalFill);
+        .catch(modal.fill);
 }
 
 
 function onSaveComplete(savedDetails) {
-    modalClose();
+    modal.close();
 
-    gTplData.name = savedDetails.name;
+    modal.setName(savedDetails.name);
     tabs.children[0].textContent = savedDetails.name;
 
     for (let i = editorDocs.length; i--; ) {
