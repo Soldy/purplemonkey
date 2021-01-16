@@ -1,4 +1,4 @@
-class SimpleEditorClass{
+export class SimpleEditorClass{
     constructor(element) {
         this._doc = null;
         this._onChangeExternal = null;
@@ -62,4 +62,3 @@ class SimpleEditorClass{
 
 
 
-window.SimpleEditorClass = SimpleEditorClass ;

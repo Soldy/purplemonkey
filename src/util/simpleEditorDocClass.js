@@ -1,5 +1,5 @@
 
-class SimpleEditorDocClass {
+export class SimpleEditorDocClass {
     constructor(content, type) {
         this._savedValue = content;
         this._currentValue = content;
@@ -22,4 +22,3 @@ class SimpleEditorDocClass {
     }
 }
 
-window.SimpleEditorDocClass = SimpleEditorDocClass;

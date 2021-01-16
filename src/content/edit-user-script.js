@@ -1,4 +1,9 @@
 'use strict';
+
+
+import { SimpleEditorDocClass } from '/src/util/simpleEditorDocClass.js';
+import { SimpleEditorClass } from '/src/util/simpleEditorClass.js';
+
 let gUserScript = null;
 
 /**
@@ -78,9 +83,9 @@ let createDoc;
         CodeMirror.commands.save = onSave;
         createDoc = (...args) => CodeMirror.Doc(...args);
     } else {
-        editor =new window.SimpleEditorClass(editorElem);
+        editor =new SimpleEditorClass(editorElem);
         editor.addCommand('save', onSave);
-        createDoc = (...args) => new window.SimpleEditorDocClass(...args);
+        createDoc = (...args) => new SimpleEditorDocClass(...args);
     }
 
     editor.on('change', () => {
