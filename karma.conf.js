@@ -16,6 +16,8 @@ module.exports = function(config) {
       './src/content/install-dialog.js',  // Not ready for testing yet.  TODO!
       './src/util/rivets-formatters.js',
       './src/util/editorDisplayClass.js',
+      './src/util/simpleEditorClass.js',
+      './src/util/simpleEditorDocClass.js',
     ],
     frameworks: ['chai', 'mocha', 'sinon', 'sinon-chrome'],
     preprocessors: config.coverage
