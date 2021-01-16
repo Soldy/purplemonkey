@@ -9,9 +9,6 @@
 <link rel="stylesheet" href="./edit-user-script.dark.css">
 
 <script src="/src/i18n.js"></script>
-<script src="/third-party/tinybind/tinybind.min.js"></script>
-<script src="/src/util/rivets-formatters.js"></script>
-<script src="/src/util/rivets-formatters.js"></script>
 
 <script src="/third-party/codemirror/codemirror.js"></script>
  <link rel="stylesheet" href="/third-party/codemirror/codemirror.css"> 
@@ -50,27 +47,17 @@
 <div id="modal-splash">
   <div id="modal">
     <header>
-      <span class="fa fa-cog" rv-class-fa-spin="modal.closeDisabled"></span>
-      {modal.title}
+      <span class="fa fa-cog fa-spin"></span>
+      <span id="modal-title"></span>
     </header>
-
-    <div rv-show="modal.errorList | empty">
-      <progress></progress>
-    </div>
-    <div rv-show="modal.errorList | empty | not">
-      <p>{'script_save_error'|i18n}</p>
-      <ul>
-        <li rv-each-error="modal.errorList">{error}</li>
-      </ul>
-      <p>{'fix_and_save'|i18n}</p>
+    <div id='modal-errors'>
     </div>
 
     <footer>
       <button
           class="button button-info button-big"
           id="modal-close"
-          rv-disabled="modal.closeDisabled">
-        {'close'|i18n}
+       >
       </button>
     </footer>
   </div>
