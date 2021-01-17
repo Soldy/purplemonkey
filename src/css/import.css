@@ -1,10 +1,11 @@
 body {
   border: 1px solid lightgray;
-  border-radius: 1ex;
   font-family: sans-serif;
   margin: 125px auto 0;
   padding-left: 12px;
   max-width: 40em;
+  background: var(--body-back);
+  color: var(--body-color);
 }
 
 label {

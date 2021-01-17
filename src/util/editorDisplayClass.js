@@ -3,16 +3,22 @@ let editor = '';
 let errorList = [];
 let name = '';
 let title = _('saving');
+const changeTitle = ()=>{
+     document.title = (
+         name.toString()+
+         ' - '+
+         _('greasemonkey_user_script_editor')
+     );
+}
 const buttonDisable = ()=>{
-    document.getElementById('modal-close').disabled = true;
     document.getElementById('modal-close').style.display = 'none';
 };
 const buttonEnable = ()=>{
-    document.getElementById('modal-close').disabled = false;
     document.getElementById('modal-close').style.display = 'block';
 };
 const errorRender = ()=>{
     const target = document.getElementById('modal-errors');
+    button
     target.innerHTML='';
     if(1 > errorList.length)
         return false;
@@ -32,9 +38,10 @@ const errorRender = ()=>{
     return true;
 };
 export class EditorDisplayClass {
-    constructor(editorIn) {
+   constructor(editorIn) {
         editor = editorIn;
         document.getElementById('modal-title').textContent = title;
+        document.title = _('greasemonkey_user_script_editor');
         document.getElementById('modal-close').textContent =_('close');
 
     }
@@ -44,6 +51,7 @@ export class EditorDisplayClass {
     }
     setName(nameIn){
         name = nameIn;
+        changeTitle();
     }
     setEditor(editorIn){
         editor = editorIn;
@@ -61,6 +69,7 @@ export class EditorDisplayClass {
         editor.getInputField().focus();
     }
     fill(e){
+        buttonEnable();
         if (e instanceof DownloadError) {
             errorList = e.failedDownloads.map(
                 d => _('ERROR_at_URL', d.error, d.url)
@@ -72,11 +81,10 @@ export class EditorDisplayClass {
             console.error('Unknown save error saving script', e);
             errorList = [_('download_error_unknown')];
         }
-        buttonEnable();
         errorRender();
 
     }
     errorClean(){
         errorList = [];
     }
-}
+};
