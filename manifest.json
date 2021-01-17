@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extName__",
-  "version": "4.10",
+  "version": "0.1",
   "description": "__MSG_extDesc__",
-  "homepage_url": "https://www.greasespot.net/",
+  "homepage_url": "https://github.com/soldy/purplemonkey",
   "icons": {
     "48": "/skin/icon.svg",
     "96": "/skin/icon.svg",
@@ -13,7 +13,7 @@
 
   "applications": {
     "gecko": {
-      "id": "{e4a8a97b-f2ed-450b-b12d-ee082ba24781}",
+      "id": "{1ab30a25-b802-4467-ba33-0068f3e9baad}",
       "strict_min_version": "57.0"
     }
   },
