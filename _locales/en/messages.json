@@ -82,7 +82,7 @@
     "message": "A User Script manager for Firefox."
   },
   "extName": {
-    "message": "Greasemonkey"
+    "message": "PurpleMonkey"
   },
   "fix_and_save": {
     "message": "The editor contents have not been saved.  Fix this error and try again."
@@ -122,16 +122,16 @@
     "message": "Greasemonkey home page"
   },
   "greasemonkey_is_active": {
-    "message": "Greasemonkey is active"
+    "message": "Purplemonkey is active"
   },
   "greasemonkey_is_disabled": {
-    "message": "Greasemonkey is disabled"
+    "message": "Purplemonkey is disabled"
   },
   "greasemonkey_options": {
-    "message": "Greasemonkey Options"
+    "message": "Purplemonkey Options"
   },
   "greasemonkey_user_script_editor": {
-    "message": "Greasemonkey User Script Editor"
+    "message": "User Script Editor"
   },
   "greasemonkey_wiki": {
     "message": "Greasemonkey Wiki"
