@@ -3,7 +3,7 @@
 set -e
 
 VER=$(sed -n -e '/"version"/{ s/.*: "//; s/".*//; p; q; }' manifest.json)
-XPI="greasemonkey-${VER}.xpi"
+XPI="purplemonkey-${VER}.xpi"
 
 echo "Packaging ${XPI} ..."
 rm -f "${XPI}"
