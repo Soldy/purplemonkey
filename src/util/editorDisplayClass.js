@@ -3,6 +3,9 @@ let editor = '';
 let errorList = [];
 let name = '';
 let title = _('saving');
+const dI = function(name){
+    return document.getElementById(name);
+}
 const changeTitle = ()=>{
      document.title = (
          name.toString()+
@@ -11,13 +14,13 @@ const changeTitle = ()=>{
      );
 }
 const buttonDisable = ()=>{
-    document.getElementById('modal-close').style.display = 'none';
+    dI('modal-close').style.display = 'none';
 };
 const buttonEnable = ()=>{
-    document.getElementById('modal-close').style.display = 'block';
+    dI('modal-close').style.display = 'block';
 };
 const errorRender = ()=>{
-    const target = document.getElementById('modal-errors');
+    const target = dI('modal-errors');
     button
     target.innerHTML='';
     if(1 > errorList.length)
@@ -40,14 +43,19 @@ const errorRender = ()=>{
 export class EditorDisplayClass {
    constructor(editorIn) {
         editor = editorIn;
-        document.getElementById('modal-title').textContent = title;
         document.title = _('greasemonkey_user_script_editor');
-        document.getElementById('modal-close').textContent =_('close');
-
+// Change the title of the save icon (and more) to initial values.
+        dI('modal-title').textContent =  _('saving');
+        dI('modal-title').textContent = title;
+        dI('modal-close').textContent =_('close');
+        dI('modal-close').addEventListener(
+            'click', 
+            modal.close
+        );
     }
     setTitle(titleIn){
         title = titleIn;
-        document.getElementById('modal-title').innerHTML = title;
+        dI('modal-title').textContent = title;
     }
     setName(nameIn){
         name = nameIn;
