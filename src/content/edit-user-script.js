@@ -31,11 +31,7 @@ const gTplData = {
         'errorList': []
     }
 };
-document.getElementById('modal-title').innerHTML =  _('saving');
-// Change the title of the save icon (and more) to initial values.
 
-document.querySelector('#modal footer button')
-    .addEventListener('click', modal.close);
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -163,37 +159,6 @@ window.addEventListener('beforeunload', event => {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-
-function modalClose() {
-    clearTimeout(modalTimer);
-    document.body.classList.remove('save');
-
-    gTplData.modal.closeDisabled = true;
-    gTplData.modal.errorList = [];
-    editor.getInputField().focus();
-}
-
-
-function modalFill(e) {
-    if (e instanceof DownloadError) {
-        gTplData.modal.errorList = e.failedDownloads.map(
-            d => _('ERROR_at_URL', d.error, d.url));
-    } else if (e.message) {
-        gTplData.modal.errorList = [e.message];
-    } else {
-    // Log the unknown error.
-        console.error('Unknown save error saving script', e);
-        gTplData.modal.errorList = [_('download_error_unknown')];
-    }
-    gTplData.modal.closeDisabled = false;
-}
-
-
-function modalOpen() {
-    document.body.classList.add('save');
-    editor.getInputField().blur();
-}
-
 
 function onSave() {
     if (document.querySelectorAll('#tabs .tab.dirty').length == 0) {
