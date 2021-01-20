@@ -1,6 +1,6 @@
 'use strict';
 
-export class cssClass {
+export class CssClass {
     load(c){
         const l = 'link',
             a = document.getElementsByTagName(l),
