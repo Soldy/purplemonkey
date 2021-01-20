@@ -24,13 +24,6 @@ const editorDocs = [];
 const editorTabs = [];
 const editorUrls = [];
 const tabs = document.getElementById('tabs');
-const gTplData = {
-    'name': '',
-    'modal': {
-        'closeDisabled': true,
-        'errorList': []
-    }
-};
 
 
 ///////////////////////////////////////////////////////////////////////////////
