@@ -1,6 +1,6 @@
 'use strict';
 
-export class jsClass {
+export class JsClass {
     load(j){
         const a = document.getElementsByTagName('script'),
             b = 'src';
