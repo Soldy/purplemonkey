@@ -1,4 +1,5 @@
 'use strict';
+/*
 window.addEventListener('DOMContentLoaded', onLoad, false);
 window.addEventListener('contextmenu', onContextMenu, false);
 window.addEventListener('click', onClick, false);
@@ -10,3 +11,4 @@ window.addEventListener('transitionstart', onTransitionStart, false);
 
 // When closing, navigate to main including its 'trigger pending uninstall'.
 window.addEventListener('unload', navigateToMainMenu, false);
+*/
