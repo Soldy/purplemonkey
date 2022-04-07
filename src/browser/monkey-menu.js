@@ -467,3 +467,6 @@ function userScriptUpdate(uuid) {
     }
   });
 }
+
+
+window.onload = function(){(new menuManager)();};
